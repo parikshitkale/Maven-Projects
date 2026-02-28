@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Verify Checkout') {
+            steps {
+                sh '''
+                echo "Current directory:"
+                pwd
+                echo "Listing files:"
+                ls -l
+                '''
+            }
+        }
+
+        stage('Trivy FS Scan') {
+          dir('Maven_First_Project_Demo'){
+            steps {
+                sh '''
+                echo "Running Trivy filesystem scan..."
+                trivy fs --severity HIGH,CRITICAL --exit-code 1 .
+                '''
+            }
+          }
+        }
+    }
+}
