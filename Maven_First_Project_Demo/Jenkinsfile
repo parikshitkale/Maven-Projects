@@ -15,13 +15,13 @@ pipeline {
         }
 
         stage('Trivy FS Scan') {
-          dir('Maven_First_Project_Demo'){
             steps {
+                dir('Maven_First_Project_Demo'){
                 sh '''
                 echo "Running Trivy filesystem scan..."
                 trivy fs --severity HIGH,CRITICAL --exit-code 1 .
                 '''
-            }
+                }
           }
         }
     }
