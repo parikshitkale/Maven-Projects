@@ -1,6 +1,7 @@
 pipeline {
-    agent any
-
+    agent { 
+       label 'jenkins-agent1'
+          }
     stages {
 
         stage('Verify Checkout') {
