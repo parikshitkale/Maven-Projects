@@ -25,5 +25,17 @@ pipeline {
                 }
           }
         }
+          stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('sonarqube') {
+                   sh '''
+                    sonar-scanner \
+                    -Dsonar.projectKey=my-project \
+                    -Dsonar.sources=. \
+                    -Dsonar.projectName=my-project
+                    '''
+                }
+            }
+          }
     }
 }
