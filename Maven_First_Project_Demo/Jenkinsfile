@@ -2,6 +2,9 @@ pipeline {
     agent { 
        label 'jenkins-agent1'
           }
+      tools {
+        sonarQube 'sonar-scanner'
+      }
     stages {
 
         stage('Verify Checkout') {
