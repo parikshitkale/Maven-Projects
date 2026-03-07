@@ -29,7 +29,7 @@ pipeline {
                 }
           }
         }
-          stage('SonarQube Analysiss') {
+          stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
                     dir('Maven_First_Project_Demo'){
