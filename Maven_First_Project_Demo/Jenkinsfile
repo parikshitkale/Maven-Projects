@@ -3,7 +3,8 @@ pipeline {
        label 'jenkins-agent1'
           }
       tools {
-        sonarRunner 'sonar-scanner'
+          jdk 'jdk-21'
+          maven 'maven'
       }
     stages {
 
@@ -30,9 +31,9 @@ pipeline {
         }
           stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('sonarqube') {
+                withSonarQubeEnv(credentialsId: 'sonar-token') {
                    sh '''
-                    sonar-scanner \
+                    sonar:sonar \
                     -Dsonar.projectKey=my-project \
                     -Dsonar.sources=. \
                     -Dsonar.projectName=my-project
