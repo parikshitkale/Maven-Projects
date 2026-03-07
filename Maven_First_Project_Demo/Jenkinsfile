@@ -36,7 +36,6 @@ pipeline {
                    sh '''
                     mvn clean verify -DskipTests sonar:sonar\
                     -Dsonar.projectKey=my-project \
-                    -Dsonar.sources=. \
                     -Dsonar.projectName=my-project
                     '''
                     }                }
