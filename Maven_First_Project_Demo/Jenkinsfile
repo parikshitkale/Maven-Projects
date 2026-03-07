@@ -33,7 +33,7 @@ pipeline {
             steps {
                 withSonarQubeEnv(credentialsId: 'sonar-token') {
                    sh '''
-                    sonar:sonar \
+                    sonar-scanner \
                     -Dsonar.projectKey=my-project \
                     -Dsonar.sources=. \
                     -Dsonar.projectName=my-project
