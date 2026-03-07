@@ -31,7 +31,7 @@ pipeline {
         }
           stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv(credentialsId: 'sonar-token') {
+                withSonarQubeEnv('sonarqube') {
                    sh '''
                     sonar-scanner \
                     -Dsonar.projectKey=my-project \
