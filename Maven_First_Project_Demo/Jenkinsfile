@@ -34,7 +34,7 @@ pipeline {
                 withSonarQubeEnv('sonarqube') {
                     dir('Maven_First_Project_Demo'){
                    sh '''
-                    mvn clean verify -DskipTests sonar:sonar\
+                    mvn clean verify sonar:sonar\
                     -Dsonar.projectKey=my-project \
                     -Dsonar.projectName=my-project
                     '''
